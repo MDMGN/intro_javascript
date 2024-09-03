@@ -1,14 +1,24 @@
 // Composición y closure
 
-/* function saludar(){
-    nombre = "Darren"
+function saludar(){
+    const nombre = "Darren"
      
     return function (){
-        console.log(nombre)
+        console.log(`Hola ${nombre} desde saludar!`)
+    }
+}
+function sumar(n){
+    return function(n2){
+        console.log(n + n2)
     }
 }
 
-saludar()() */
+
+
+saludar()()
+
+sumar(5)(2)
+
 const  saludar2= ()=>{
     nombre = "Darren"
     return  ()=>{
