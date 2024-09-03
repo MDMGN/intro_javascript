@@ -16,7 +16,7 @@ const saludo = ` Hola ${apellidos}`; // Template strings
 // Arrays
 const numbers= [1,2,3,4,["ssd"]]
 
-numbers = ['p','a']
+//numbers = ['p','a']
 
 // Objetos
 
@@ -24,9 +24,12 @@ const persona = {
     nombre: 'Michael',
     edad: 25,
     saludar : function (){
-        console.log("Hello World!")
+        console.log(`Hello ${this.nombre}!`)
     },
     peliculasFavoritas : ["Avengers","Iron - Man"],
-    
+
 }
+
+persona.nombre = "Darren"
+persona.saludar()
 
