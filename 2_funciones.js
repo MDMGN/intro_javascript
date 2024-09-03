@@ -1,4 +1,4 @@
-// Composición y closure
+// Composición y clousure
 
 function saludar(){
     const nombre = "Darren"
@@ -7,16 +7,16 @@ function saludar(){
         console.log(`Hola ${nombre} desde saludar!`)
     }
 }
-function sumar(n){
-    return function(n2){
-        console.log(n + n2)
-    }
-}
 
 
 
 saludar()()
 
+function sumar(n){
+    return function(n2){
+        console.log(n + n2)
+    }
+}
 sumar(5)(2)
 
 const  saludar2= ()=>{
@@ -37,11 +37,18 @@ const frutasConColor= frutas.map(function (fruta){
 
 const precios = [45.60,70,50]
 
-const total = precios.reduce((acc,item) => {
+let total = precios.reduce((acc,item) => {
     acc.push(item)
     return acc
 } ,[])
 
-
+/* 
 console.log(total)
 
+const aumentarTotal= (n)=>{
+    total.push(n)
+}
+
+aumentarTotal(4) */
+
+console.log(total)
