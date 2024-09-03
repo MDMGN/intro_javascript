@@ -24,7 +24,9 @@ const persona = {
     nombre: 'Michael',
     edad: 25,
     saludar : function (){
-        console.log("Hello Wrold!")
-    }
+        console.log("Hello World!")
+    },
+    peliculasFavoritas : ["Avengers","Iron - Man"],
+    
 }
 
