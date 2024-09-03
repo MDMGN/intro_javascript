@@ -17,6 +17,7 @@ const  saludar2= ()=>{
 }
 saludar2()()
 
+// Metodos de arrays
 const frutas = ["manzana", "pera","fresa"]
 
 
