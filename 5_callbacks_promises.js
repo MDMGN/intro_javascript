@@ -23,6 +23,3 @@ function filter (arr,cb){
 }
 
 console.log(filter(arr_, (el)=> el !== 7 ))
-
-    
-
