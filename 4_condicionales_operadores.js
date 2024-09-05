@@ -26,6 +26,8 @@ const value2 = {
 
 console.log(value2?.apellido)
 
+//Nullish coalescing
+
 const value3 = undefined ?? "some"
 
 console.log(value3)
