@@ -17,13 +17,23 @@ function sumar(n){
         console.log(n + n2)
     }
 }
-sumar(5)(2)
+
+const sumar5=sumar(5)
+
+console.log(sumar5(2))
 
 const  saludar2= ()=>{
+
     nombre = "Darren"
     return  ()=>{
         console.log(nombre)
     }
+    function saludarDentro(){
+        console.log("")
+    }
+
+    saludar2()
+
 }
 saludar2()()
 
@@ -42,13 +52,7 @@ let total = precios.reduce((acc,item) => {
     return acc
 } ,[])
 
-/* 
-console.log(total)
-
-const aumentarTotal= (n)=>{
-    total.push(n)
-}
-
-aumentarTotal(4) */
 
 console.log(total)
+
+
