@@ -6,6 +6,8 @@ let edad = 25
 
 let  masculino = true // false
 
+undefined  || null
+
 const apellidos = "Vargas Ramirez" + " ";
 
 
