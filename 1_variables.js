@@ -4,12 +4,11 @@ let nombre = 'Darren';
 
 let edad = 25
 
-let  masculino = true // false
+let  masculino = true || false
 
-undefined  || null
+undefined  || null || NaN
 
 const apellidos = "Vargas Ramirez" + " ";
-
 
 const saludo = ` Hola ${apellidos}`; // Template strings
 

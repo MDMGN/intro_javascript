@@ -8,7 +8,7 @@
        return Object.values(objAcc).length ? Math.max(...Object.values(objAcc) ) :  0;
 } */
 
-
+// Ejemplos de callbacks
 const arr_ = [2,4,5,6,7]
 
 function filter (arr,cb){
@@ -23,3 +23,11 @@ function filter (arr,cb){
 }
 
 console.log(filter(arr_, (el)=> el !== 7 ))
+
+function map(arr,cb){
+    const aux = []
+    arr.forEach((el)=> aux.push(cb(el)))
+    return aux
+}
+
+console.log(map(arr_, el=> el + 5))
