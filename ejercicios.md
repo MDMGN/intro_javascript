@@ -27,7 +27,7 @@ const jugadores = [
 ];
 
 function calcularPuntuacionTotal(jugadores) {
-    // Usa map y reduce para calcular el total de puntos por jugador
+    // Usa reduce para calcular el total de puntos por jugador
 }
 
 console.log(calcularPuntuacionTotal(jugadores)); 
