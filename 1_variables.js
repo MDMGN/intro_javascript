@@ -31,6 +31,7 @@ const persona = {
 
 }
 
+
 persona.nombre = "Darren"
 persona.saludar()
 

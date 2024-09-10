@@ -18,7 +18,7 @@ let obj= {
 // Propiedades computadas
 obj={
     ...obj,
-    [alumnos[3]]: "Jauregui"
+    [alumnos[0]]: "J"
 }
 console.log(obj)
 
