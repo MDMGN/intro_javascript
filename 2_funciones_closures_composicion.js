@@ -54,5 +54,3 @@ let total = precios.reduce((acc,item) => {
 
 
 console.log(frutasConColor)
-
-
