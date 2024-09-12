@@ -72,7 +72,7 @@ console.log(inventario); //
 
 let usuariosDB = {};
 
-/* function agregarUsuario(nombre, apellido) {
+function agregarUsuario(nombre, apellido) {
     // Usa propiedades computadas para agregar usuarios con claves dinámicas
 usuariosDB={
     ...usuariosDB,
@@ -81,7 +81,6 @@ usuariosDB={
 }
 
 agregarUsuario("Juan", "Pérez");
-agregarUsuario("Ana", "García"); */
-/* 
-console.log(usuariosDB); */
+agregarUsuario("Ana", "García");
+console.log(usuariosDB);
 // { Juan: "Pérez", Ana: "García" }
