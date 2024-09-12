@@ -52,7 +52,3 @@ Object.values(persona).forEach((el)=> ({nombre: "Darren"}) )
  console.log(obj3)
 
 
-
-
-
-

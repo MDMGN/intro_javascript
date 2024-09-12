@@ -82,5 +82,60 @@ usuariosDB={
 
 agregarUsuario("Juan", "Pérez");
 agregarUsuario("Ana", "García");
-console.log(usuariosDB);
+/* console.log(usuariosDB);
 // { Juan: "Pérez", Ana: "García" }
+
+ */
+
+/* Ejercicio 5: Crear un buscador de productos por nombre
+En una tienda online, necesitas implementar un buscador que permita a los usuarios buscar productos por nombre parcial. Crea una función que reciba un array de productos y un término de búsqueda, y devuelva los productos que contengan ese término en su nombre.
+ */
+const productosTienda = [
+    { nombre: "Camiseta", precio: 15 },
+    { nombre: "Pantalón", precio: 25 },
+    { nombre: "Zapatos", precio: 50 }
+];
+
+function buscarProductoPorNombre(productos, termino) {
+    // Usa filter para buscar productos cuyo nombre incluya el término
+    return productos.filter((el) => el.nombre.startsWith(termino)  )
+
+}
+
+//console.log(buscarProductoPorNombre(productosTienda, "Cami")); // [{ nombre: "Camiseta", precio: 15 }]
+
+/* Ejercicio 6: Gestión de tareas pendientes
+Estás desarrollando una aplicación de tareas pendientes. Crea funciones para agregar tareas, marcarlas como completadas y filtrar las que están pendientes. Usa callbacks para realizar las operaciones de filtrado y mapeo de los estados de las tareas. */
+
+let tareas = [
+    { nombre: "Hacer compras", completada: false },
+    { nombre: "Estudiar", completada: false },
+    { nombre: "Pasear al perro", completada: true }
+];
+
+function agregarTarea(nombre) {
+    // Agrega una nueva tarea
+    tareas = [
+        ...tareas,
+        {
+            nombre,
+            completada : false
+        }
+    ]
+}
+
+function completarTarea(nombre) {
+    // Marca una tarea como completada
+    tareas = tareas.map(el => el.nombre === nombre ? {...el, completada: true} : el)
+}
+
+function obtenerTareasPendientes(tareas) {
+    // Usa filter para obtener las tareas no completadas
+    return tareas.filter( el => !el.completada )
+}
+
+agregarTarea("Ir al gimnasio");
+completarTarea("Hacer compras");
+console.log(tareas)
+console.log(obtenerTareasPendientes(tareas)); 
+// [{ nombre: "Estudiar", completada: false }, { nombre: "Ir al gimnasio", completada: false }]
