@@ -52,15 +52,14 @@ function actualizarInventario(producto, cantidadVendida) {
     // Usa operadores de corto circuito para verificar si hay suficientes productos
     // Actualiza el inventario y verifica si un producto está agotado
 
-    (inventario[producto]) ?
+    (inventario[producto] || console.log(`El producto ${producto} no existe!`) ) 
+    && (
+        inventario[producto] >= cantidadVendida ? 
+        inventario[producto]-= cantidadVendida : console.log(`El producto ${producto} no tiene existencias!`)
+        )
     
-    inventario[producto] >= cantidadVendida ? 
-    inventario[producto]-= cantidadVendida : console.log(`El producto ${producto} no tiene existencias!`)
 
-    : console.log(`El producto ${producto} no existe!`) 
-    
-
-}
+}x
 
 /* actualizarInventario("manzanas", 5);
 console.log(inventario); // { manzanas: 5, peras: 15, naranjas: 20 }
@@ -81,6 +80,6 @@ usuariosDB={
 
 agregarUsuario("Juan", "Pérez");
 agregarUsuario("Ana", "García");
-
-console.log(usuariosDB);
+/* 
+console.log(usuariosDB); */
 // { Juan: "Pérez", Ana: "García" }
