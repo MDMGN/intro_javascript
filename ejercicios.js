@@ -59,18 +59,20 @@ function actualizarInventario(producto, cantidadVendida) {
         )
     
 
-}x
+}
 
-/* actualizarInventario("manzanas", 5);
+actualizarInventario("manzanas", 5);
 console.log(inventario); // { manzanas: 5, peras: 15, naranjas: 20 }
 actualizarInventario("manzanas", 5);
 console.log(inventario); // { manzanas: 0, peras: 15, naranjas: 20 }
+actualizarInventario("manzanas", 5);
+console.log(inventario); // 
 
- */
+
 
 let usuariosDB = {};
 
-function agregarUsuario(nombre, apellido) {
+/* function agregarUsuario(nombre, apellido) {
     // Usa propiedades computadas para agregar usuarios con claves dinámicas
 usuariosDB={
     ...usuariosDB,
@@ -79,7 +81,7 @@ usuariosDB={
 }
 
 agregarUsuario("Juan", "Pérez");
-agregarUsuario("Ana", "García");
+agregarUsuario("Ana", "García"); */
 /* 
 console.log(usuariosDB); */
 // { Juan: "Pérez", Ana: "García" }
