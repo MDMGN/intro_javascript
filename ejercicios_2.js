@@ -51,13 +51,11 @@ const obtenerPersona = () => {
 obtenerPersona()
     .then((persona)=>{
         const {nombre, peliculasFavoritas} = persona
-        /* console.log(`Nombre: ${nombre}`)
+        console.log(`Nombre: ${nombre}`)
         console.log(`Películas favoritas: ${peliculasFavoritas.join(", ")}`)
-        console.log(Object.keys(persona).join(", ")) */
+        console.log(Object.keys(persona).join(", "))
 
-        const message = Object.entries(persona).reduce( (acc, el)=>{
-                
-        }  , "");
+       
         //Debería mostrar:
     // Nombre: Michael
     // Películas favoritas: "Avengers", "Iron Man"
