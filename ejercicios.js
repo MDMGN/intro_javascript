@@ -217,3 +217,23 @@ function cadenaDeProcesamiento(datos, funciones) {
 
 console.log(cadenaDeProcesamiento(datos, [duplicar, restarUno]));
 // [1, 3, 5]
+
+
+/* 
+Ejercicio 10: Manejar errores con Optional Chaining
+En una aplicación de gestión de usuarios, no todos los usuarios tienen todas las propiedades (por ejemplo, "apellido"). Usa optional chaining para asegurarte de que no se produzcan errores al intentar acceder a propiedades inexistentes.
+*/
+const usuario = {
+    nombre: "Darren",
+    direccion: {
+        ciudad: "Madrid"
+    }
+};
+
+function obtenerDireccionCompleta(usuario) {
+    // Usa optional chaining para evitar errores si alguna propiedad no existe
+    return usuario.direccion?.ciudad ?? "Dirección no disponible"
+}
+
+console.log(obtenerDireccionCompleta(usuario)); // "Madrid"
+console.log(obtenerDireccionCompleta({})); // "Dirección no disponible"
