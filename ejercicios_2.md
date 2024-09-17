@@ -25,3 +25,36 @@ obtenerFrutas()
     })
     .catch((error) => console.error(error));
 ```
+
+## Ejercicio 2: Desestructuración y Promesas
+### Objetivo:
+Utilizar **desestructuración** en combinación con promesas para extraer datos específicos de un objeto obtenido tras una operación asíncrona.
+
+### Ejercicio:
+1. Crea una promesa que resuelva un objeto `persona` con propiedades como `nombre`, `edad` y `peliculasFavoritas`.
+2. Utiliza **desestructuración** para obtener directamente `nombre` y `peliculasFavoritas` dentro del `.then()`.
+3. Usa `Object.keys()` para mostrar las claves del objeto resultante.
+
+```js
+const obtenerPersona = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                nombre: 'Michael',
+                edad: 25,
+                peliculasFavoritas: ["Avengers", "Iron Man"]
+            });
+        }, 1500);
+    });
+}
+
+obtenerPersona()
+    .then((persona)=>{
+    //Debería mostrar:
+    // Nombre: Michael
+    // Películas favoritas: "Avengers", "Iron Man"
+    // nombre, edad, peliculasFavoritas
+    })
+    .catch((error) => console.error(error));
+
+```
