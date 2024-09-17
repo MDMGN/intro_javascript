@@ -37,7 +37,6 @@ function calcularPuntuacionTotal(jugadores) {
 
 /* console.log(calcularPuntuacionTotal(jugadores));  */
 // [{ nombre: "Player1", total: 45 }, { nombre: "Player2", total: 40 }]
-
 /* Ejercicio 3: Actualizar un inventario de tienda
 Tienes un inventario de productos en una tienda y deseas actualizarlo. Crea una función que permita restar la cantidad de un producto vendido y también ver si el producto ya está agotado.
  */
@@ -136,6 +135,85 @@ function obtenerTareasPendientes(tareas) {
 
 agregarTarea("Ir al gimnasio");
 completarTarea("Hacer compras");
-console.log(tareas)
-console.log(obtenerTareasPendientes(tareas)); 
+//console.log(obtenerTareasPendientes(tareas)); 
 // [{ nombre: "Estudiar", completada: false }, { nombre: "Ir al gimnasio", completada: false }]
+
+
+
+/* 
+7.
+En una escuela, deseas calcular el promedio de notas de varios estudiantes. Crea una función que reciba un array de estudiantes, donde cada estudiante tiene un array de notas, y devuelva el promedio de notas de cada estudiante.
+*/
+
+
+const estudiantes = [
+    { nombre: "Juan", notas: [10, 9, 8] },
+    { nombre: "Ana", notas: [9, 8, 7] }
+];
+
+function calcularPromedio(estudiantes) {
+    // Usa map y reduce para calcular el promedio de notas por estudiante
+    return estudiantes.map(({nombre, notas}) => ({
+                    nombre,
+                    promedio : notas.reduce((acc,nota)=> acc+=nota ,0) / notas.length
+    }))
+}
+
+//console.log(calcularPromedio(estudiantes));
+// [{ nombre: "Juan", promedio: 9 }, { nombre: "Ana", promedio: 8 }]
+
+
+/* 
+ Ejercicio 8: Crear un sistema de suscripción de eventos
+Imagina que tienes una aplicación donde los usuarios pueden suscribirse a eventos, como "clic" o "submit". Crea un sistema donde los usuarios puedan suscribirse y emitir eventos con diferentes callbacks.
+*/
+
+let suscriptores = {};
+
+function suscribir(evento, callback) {
+    // Permite a los usuarios suscribirse a eventos
+    suscriptores = {
+        ...suscriptores,
+        [evento] : suscriptores[evento] ?  [...suscriptores[evento], callback] : [callback]
+    }
+}
+
+function emitirEvento(evento) {
+    // Ejecuta todos los callbacks asociados a un evento
+    suscriptores[evento].forEach(cb => cb());
+}
+
+suscribir("click", () => console.log("Se hizo clic"));
+suscribir("click", () => console.log("Otro clic"));
+emitirEvento("click")
+// Se hizo clic
+// Otro clic
+
+/* 
+ Ejercicio 9: Crear una cadena de procesamiento de datos
+Tienes un conjunto de datos que pasa por una cadena de procesamiento. Cada paso en la cadena es una función que transforma los datos de alguna manera. Crea una función que reciba los datos iniciales y un array de funciones de procesamiento, y que aplique cada función en secuencia.
+*/
+
+const datos = [1, 2, 3];
+
+function duplicar(n) {
+    return n * 2;
+}
+
+function restarUno(n) {
+    return n - 1;
+}
+
+function cadenaDeProcesamiento(datos, funciones) {
+    // Usa reduce para aplicar todas las funciones en secuencia
+   /*  const [du, rest] = funciones
+   return datos.reduce((arr,dato)=>{
+        arr.push(rest(du(dato)))
+        return arr;
+   },[]) */
+
+   return funciones.reduce((acc,fn)=> acc.map(fn) ,datos)
+}
+
+console.log(cadenaDeProcesamiento(datos, [duplicar, restarUno]));
+// [1, 3, 5]
