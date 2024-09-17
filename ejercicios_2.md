@@ -11,6 +11,7 @@ Simular una llamada a una API externa que devuelve una lista de frutas, utilizan
 
 
 const obtenerFrutas = () => {
+   const data = ["manzana", "pera", "fresa", "mango", "banana"]
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve();
@@ -18,7 +19,7 @@ const obtenerFrutas = () => {
     });
 }
 
-obtenerFrutas(["manzana", "pera", "fresa", "mango", "banana"])
+obtenerFrutas()
     .then((frutas) => {
         // Debería mostrar ["manzana", "fresa", "mango", "banana"]
     })
