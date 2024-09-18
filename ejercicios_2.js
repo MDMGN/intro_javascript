@@ -19,7 +19,7 @@ const obtenerFrutas = () => {
 
 obtenerFrutas()
     .then((frutas) => {
-        console.log(frutas.filter((fruta)=> fruta !== "pera" ))
+//console.log(frutas.filter((fruta)=> fruta !== "pera" ))
         // Debería mostrar ["manzana", "fresa", "mango", "banana"]
     })
     .catch((error) => console.error(error));
@@ -51,10 +51,10 @@ const obtenerPersona = () => {
 obtenerPersona()
     .then((persona)=>{
         const {nombre, peliculasFavoritas} = persona
-        console.log(`Nombre: ${nombre}`)
+ /*        console.log(`Nombre: ${nombre}`)
         console.log(`Películas favoritas: ${peliculasFavoritas.join(", ")}`)
         console.log(Object.keys(persona).join(", "))
-
+ */
        
         //Debería mostrar:
     // Nombre: Michael
@@ -62,3 +62,99 @@ obtenerPersona()
     // nombre, edad, peliculasFavoritas
     })
     .catch((error) => console.error(error));
+
+/* 
+Ejercicio 3: Promesas encadenadas con Closure
+Objetivo:
+Utilizar closures para generar una función que devuelva promesas encadenadas.
+
+Objetivos:
+1. Crea una función generarPromesa que acepte un número n y devuelva una promesa que resuelva después de n segundos.
+2. Encadena varias promesas utilizando un closure para mantener el número original y mostrar el tiempo transcurrido.
+3. Controlar el error si el parametro "n" no es un número.
+
+*/
+function generarPromesa(n) {
+    return function() {
+        return new Promise((resolve, reject) => {
+         //Completar la función
+        });
+    }
+}
+
+/* generarPromesa(1)()
+    .then((n) => generarPromesa(n+1)())
+    .then((n) => generarPromesa(n+1)())
+    .then((n)=> generarPromesa("m")())
+    .then(console.error)
+    .catch((error) => console.error(error)); */
+
+//Debería mostrar
+/* 
+Esperé 1 segundos.
+Esperé 2 segundos.
+Esperé 3 segundos.
+Error: 'm' no es un número.
+*/
+
+const login = (usuario, password) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          
+        }, 1000);
+    });
+}
+/* 
+Deberia mostrar: 
+Login exitoso
+Error: Usuario o contraseña incorrectos
+*/
+
+function crearTemporizador() {
+    let tiempo = 0;
+    let temporizadorActivo = false;
+
+    return {
+        iniciar() {
+            return new Promise((resolve, reject) => {
+                if (temporizadorActivo) {
+                    return reject("El temporizador ya está activo.");
+                }
+                temporizadorActivo = true;
+                const intervalo = setInterval(() => {
+                    tiempo += 1;
+                    console.log(`Tiempo: ${tiempo} segundos`);
+                    if (!temporizadorActivo) {
+                        clearInterval(intervalo);
+                        resolve(`Temporizador detenido en ${tiempo} segundos.`);
+                    }
+                }, 1000);
+            });
+        },
+        pausar() {
+            return new Promise((resolve) => {
+                temporizadorActivo = false;
+                resolve("Temporizador pausado.");
+            });
+        },
+        reset() {
+            return new Promise((resolve) => {
+                tiempo = 0;
+                temporizadorActivo = false;
+                resolve("Temporizador reiniciado.");
+            });
+        }
+    };
+}
+
+// Uso
+const miTemporizador = crearTemporizador();
+miTemporizador.iniciar().then((mensaje) => console.log(mensaje));
+
+// Pausar el temporizador después de 5 segundos
+setTimeout(() => miTemporizador.pausar().then((mensaje) => console.log(mensaje)).then(
+    ()=>{
+        miTemporizador.iniciar()
+        setInterval(()=>miTemporizador.reset(),10000)
+    }
+), 5000);

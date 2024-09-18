@@ -52,9 +52,61 @@ obtenerPersona()
     .then((persona)=>{
     //Debería mostrar:
     // Nombre: Michael
-    // Películas favoritas: "Avengers", "Iron Man"
+    // Películas favoritas: Avengers, Iron Man
     // nombre, edad, peliculasFavoritas
     })
     .catch((error) => console.error(error));
 
+```
+
+
+---
+
+## Ejercicio 3: Promesas encadenadas con Closure
+### Objetivo:
+Utilizar closures para generar una función que devuelva promesas encadenadas.
+
+Ejercicio:
+1. Crea una función generarPromesa que acepte un número n y devuelva una promesa que resuelva después de n segundos.
+2. Encadena varias promesas utilizando un closure para mantener el número  y mostrar el tiempo transcurrido.
+```js
+function generarPromesa(n) {
+    return function() {
+        return new Promise((resolve, reject) => {
+         //Completar la función
+        });
+    }
+}
+
+generarPromesa(1)()
+    .then((n) => generarPromesa(n+1)())
+    .then((n) => generarPromesa(n+1)())
+    .then((n)=> generarPromesa("m")())
+    .then(console.error)
+    .catch((error) => console.error(error));
+
+//Debería mostrar
+//Esperé 1 segundos.
+//Esperé 2 segundos.
+//Esperé 3 segundos.
+```
+
+---
+
+## Ejercicio 4: Manejo de errores con Promesas
+### Objetivo:
+Simular un manejo de errores en promesas para practicar el manejo asíncrono de fallos.
+
+### Ejercicio:
+1. Crea una función que simule un login asíncrono (Después de un segundo). Si el usuario y contraseña no coinciden, debe lanzar un error. (usuario es "admin" y password es "P@ssw0rd")
+2. Usa una promesa para manejar los errores de manera correcta.
+
+```js
+const login = (usuario, password) => {
+    //Completa la función retornando una promesa
+}
+
+//LLama a la promesa y simula un login exitoso y un login incorrecto con los siguientes mensajes:
+//Login exitoso
+//Error: Usuario o contraseña incorrectos
 ```
