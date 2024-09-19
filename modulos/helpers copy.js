@@ -16,17 +16,7 @@ const obtenerFrutas = () => {
         console.error(err)
     }
  }
-let num = 5
 
- async function miFuncion() {
-    return "Hola Mundo";
-}
-
-export default num;
- //export default asyncObtenerFrutas
-
- /* export {
-    miFuncion,
+ module.exports = {
     asyncObtenerFrutas
- }
- */
+ } 
