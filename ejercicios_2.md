@@ -110,3 +110,44 @@ const login = (usuario, password) => {
 //Login exitoso
 //Error: Usuario o contraseña incorrectos
 ```
+
+
+### Ejercicio 5: Temporizador con Estado
+
+#### Objetivo:
+Crear un temporizador que se pueda iniciar, pausar y restablecer utilizando **promesas** y **closures**.
+
+#### Ejercicio:
+Crea una función `crearTemporizador` que utilice un closure para almacenar el estado del temporizador (si está activo o pausado) y controle el tiempo transcurrido.
+
+```javascript
+function crearTemporizador() {
+    let tiempo = 0;
+    let temporizadorActivo = false;
+
+    return {
+        iniciar() {
+            return new Promise((resolve, reject) => {
+                
+            });
+        },
+        pausar() {
+            return new Promise((resolve) => {
+              
+            });
+        },
+        reset() {
+            return new Promise((resolve) => {
+             
+            });
+        }
+    };
+}
+
+const miTemporizador = crearTemporizador();
+// Mostrar los segundos pasados por el temporizador
+miTemporizador.iniciar().then((mensaje) => console.log(mensaje));
+
+// Pausar el temporizador después de 5 segundos
+setTimeout(() => miTemporizador.pausar().then((mensaje) => console.log(mensaje)), 5000);
+```
