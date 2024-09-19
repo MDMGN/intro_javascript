@@ -78,17 +78,25 @@ function generarPromesa(n) {
     return function() {
         return new Promise((resolve, reject) => {
          //Completar la función
+         if(isNaN(n)){
+            reject("No es número")
+            return;
+         }
+         
+         setTimeout(()=>{
+            console.log(`Esperé ${n} segundos.`)
+            resolve(n)
+         }, n *1000)
         });
     }
 }
 
- generarPromesa(1)()
+/*  generarPromesa(1)()
     .then((n) => generarPromesa(n+1)())
     .then((n) => generarPromesa(n+1)())
     .then((n)=> generarPromesa("m")())
-    .then(console.error)
     .catch((error) => console.error(error));
-
+ */
 //Debería mostrar
 /* 
 Esperé 1 segundos.
@@ -96,3 +104,34 @@ Esperé 2 segundos.
 Esperé 3 segundos.
 Error: 'm' no es un número.
 */
+
+/* 
+Ejercicio 4: Manejo de errores con Promesas
+Objetivo:
+Simular un manejo de errores en promesas para practicar el manejo asíncrono de fallos.
+
+Ejercicio:
+Crea una función que simule un login asíncrono (Después de un segundo). Si el usuario y contraseña no coinciden, debe lanzar un error. (usuario es "admin" y password es "P@ssw0rd")
+Usa una promesa para manejar los errores de manera correcta.
+*/
+const login = (usuario, password) => {
+    //Completa la función retornando una promesa
+    return new Promise((resolve,reject)=>{
+            usuario === "admin" && password === "P@ssw0rd" ? resolve("Login exitoso") : reject("Error: Usuario o contraseña incorrectos")
+    })
+}
+
+
+/* login("admin","P@ssw0rd")
+.then((msg)=> !console.log(msg) && login("admin","P@ssw0r"))
+.catch(console.error)
+ */
+/* const [success, error] =  Promise.all([
+login("admin","P@ssw0rd"),
+login("admin","P@ssw0r")
+]) */
+
+console.log({error, success})
+//LLama a la promesa y simula un login exitoso y un login incorrecto con los siguientes mensajes:
+//Login exitoso
+//Error: Usuario o contraseña incorrectos
