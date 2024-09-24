@@ -16,17 +16,28 @@ const obtenerFrutas = () => {
         console.error(err)
     }
  }
+ 
 let num = 5
+
 
  async function miFuncion() {
     return "Hola Mundo";
 }
+function addNum(n){
+    num += n
+}
 
-export default num;
+export {
+    num,
+    addNum
+}
+
+/* export default num; */
  //export default asyncObtenerFrutas
 
- /* export {
+/*  export {
     miFuncion,
     asyncObtenerFrutas
  }
  */
+
